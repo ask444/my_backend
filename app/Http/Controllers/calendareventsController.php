@@ -12,7 +12,7 @@ class calendareventsController extends Controller
 public function createEvent(Request  $request){
     
     $data=$request->JSON()->all();
-    print_r($data);
+    // print_r($data);
 
 
   $id=  DB::table('calendarevents')->insert(
@@ -28,7 +28,7 @@ public function createEvent(Request  $request){
         return response()->json(['status'=>false,'message' => 'Failed to insert row into database.']);
      }
      else{
-        return response()->json(['status'=>true,'message' => 'Saved Successfully']);
+        return response()->json(['status'=>true,'message' => 'Saved Successfully','data'=>array($data)]);
      }
      
 }
