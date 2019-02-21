@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpFoundation\Response;
 use DB;
 class calendareventsController extends Controller
 {
@@ -32,5 +31,16 @@ public function createEvent(Request  $request){
      }
      
 }
+
+public function getEventsList(){
+   $result = DB::table('calendarevents')->get();
+   if(empty($result)){    
+    return response()->json(['status'=>false,'message' => 'Failed to fetch the record.']);
+    }
+   else{
+    return response()->json(['data' => $result, 'page_title' => 'Demo Products']);
+   }
+}
+
 
 }

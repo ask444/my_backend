@@ -11,4 +11,10 @@ Route::group([
     Route::post('sendPasswordResetLink', 'ResetPasswordController@sendEmail');
     Route::post('resetPassword', 'ChangePasswordController@process');
     Route::post('createEvent', 'calendareventsController@createEvent');
+    Route::get('geteventsList', 'calendareventsController@getEventsList');
+    // getEventsList
+    Route::get('getsusers','usersdataController@users');
+    Route::post('updateuser','usersdataController@updateuser');
+
+    
 });
