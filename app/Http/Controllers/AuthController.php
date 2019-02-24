@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\SignUpRequest;
 use DB;
 use App\User;
+use Carbon\Carbon;
+
 
 
 class AuthController extends Controller
@@ -42,7 +44,7 @@ class AuthController extends Controller
         $user =User::create($request->all());
         $insertedId = $user->id;
         DB::table('role_user')->insert([
-            ['role_id' => 1,'user_id'=>$insertedId]
+            ['role_id' => 3,'user_id'=>$insertedId,'updated_at'=>Carbon::now(),'created_at'=>Carbon::now()]
         ]);
         return $this->login($request);
     }

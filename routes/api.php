@@ -12,9 +12,13 @@ Route::group([
     Route::post('resetPassword', 'ChangePasswordController@process');
     Route::post('createEvent', 'calendareventsController@createEvent');
     Route::get('geteventsList', 'calendareventsController@getEventsList');
+    Route::post('deleteevent', 'calendareventsController@deleteevent');
+    Route::post('updateevent', 'calendareventsController@updateevent');
     // getEventsList
-    Route::get('getsusers','usersdataController@users');
-    Route::post('updateuser','usersdataController@updateuser');
+    Route::get('getusers', 'usersdataController@users');
+    Route::post('updateuser', 'usersdataController@updateuser');
+    // deleteuser
+    Route::post('deleteuser', 'usersdataController@deleteuser');
+    Route::get('getadminusers', 'usersdataController@getadminusers');
 
-    
 });
